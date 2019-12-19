@@ -1,7 +1,9 @@
 FROM gcr.io/kaniko-project/executor:debug
 
-ADD https://github.com/redheads/registry-image-check/releases/download/1.1/registry-image-check /
+SHELL ["/busybox/sh", "-c"]
 
-ENTRYPOINT [ "" ]
+ENTRYPOINT [ ]
 
-RUN chmod 755 /registry-image-check
+ADD https://github.com/redheads/registry-image-check/releases/download/1.2/registry-image-check.static /registry-image-check
+
+RUN chmod 755 /registry-image-check; mkdir /tmp
